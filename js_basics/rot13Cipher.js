@@ -41,6 +41,7 @@ function rot13(str) {
   return newString;
 }
 
+/*
 console.log(rot13('Teachers open the door, but you must enter by yourself.'));
 
 // logs:
@@ -50,3 +51,5 @@ console.log(rot13(rot13('Teachers open the door, but you must enter by yourself.
 
 // logs:
 Teachers open the door, but you must enter by yourself.
+
+*/
