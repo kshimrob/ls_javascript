@@ -22,12 +22,11 @@ IDEAS:
 function rot13(str) {
   var newString = '';
   var asciiCode;
+  LETTER_SHIFT = 13;
 
   if (typeof str !== "string") {
     return "This is not a string.";
   }
-  
-  LETTER_SHIFT = 13;
 
   for (var i = 0; i < str.length; i++) {
     asciiCode = str[i].charCodeAt();
