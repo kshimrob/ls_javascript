@@ -22,7 +22,14 @@ IDEAS:
 function rot13(str) {
   var newString = '';
   var asciiCode;
+
   LETTER_SHIFT = 13;
+  CAPITAL_A = 65;
+  CAPITAL_M = 77;
+  CAPITAL_Z = 90;
+  LOWERCASE_A = 97;
+  LOWERCASE_M = 109;
+  LOWERCASE_Z = 122;
 
   if (typeof str !== "string") {
     return "This is not a string.";
@@ -30,9 +37,9 @@ function rot13(str) {
 
   for (var i = 0; i < str.length; i++) {
     asciiCode = str[i].charCodeAt();
-    if ((asciiCode > 64 && asciiCode <= 77) || (asciiCode > 96 && asciiCode <= 109)) {
+    if ((asciiCode >= CAPITAL_A && asciiCode <= CAPITAL_M) || (asciiCode >= LOWERCASE_A && asciiCode <= LOWERCASE_M)) {
       asciiCode += 13;
-    } else if ((asciiCode > 77 && asciiCode <= 90) || (asciiCode > 109 && asciiCode <= 122)) {
+    } else if ((asciiCode > CAPITAL_M && asciiCode <= CAPITAL_Z) || (asciiCode > LOWERCASE_M && asciiCode <= LOWERCASE_Z)) {
       asciiCode -= 13;
     }
     newString += String.fromCharCode(asciiCode);
