@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <title>Butts</title>
+</head>
+<body>
+  <div class="container">
+    <h2>But is it a Prime number?</h2>
+  </div>
+  <div class="container">
+    <div class="form-group form-group-lg">
+      <label class="control-label" for="start">Enter number to test</label>
+      <input id="number" class="form-control" type="text" maxlength="9" onkeyup="pVerify()" />
+    </div>
+    <div class="form-group form-group-lg">      
+      <label class="control-label" for="result">Results:</label>
+      <h4 id="isresult"></h4>
+    </div>
+  </div>
+  <div class="container">
+    <h2>Generate Prime numbers.</h2>
+  </div>
+  <div class="container">
+    <div class="form-group form-group-lg">
+      <label class="control-label" for="start">Enter Starting Number (optional)</label>
+      <input id="start" class="form-control" type="text" maxlength="7" onkeyup="pGenerate()" />
+    </div>
+    <div class="form-group form-group-lg">      
+      <label class="control-label" for="end">Enter Ending Number (yeah, this one is required)</label>
+      <input id="end" class="form-control" type="text" maxlength="8" onkeyup="pGenerate()" />
+    </div>
+    <div class="form-group form-group-lg">      
+      <label id="resultlabel" class="control-label" for="result">Prime Number(s)</label>
+      <h4 id="result" style="word-wrap: break-word;"></h4>
+    </div>
+  </div>
+  <script>
+    function isPrime(num) {
+    if (num == 0 || num == 1 || num == 2) {
+      return false
+    }
+    
+    for (var i = 2; i < num; i++) {
+        if (num % i == 0) {
+          return false;
+        }
+      return true;
+    }
+  }
+  
+  function pVerify()
+    {
+      var number = $("input[id=number]").val();
+      var is_prime = isPrime(number);
+
+        $("#isresult").html(String(is_prime));
+    }
+
+      function pGenerate() {
+    var first = $("input[id=start]").val();
+    var last = $("input[id=end]").val();
+    var primes = []
+    
+    for (var i = first; i <= last; i++) {
+      console.log(i);
+      // if (isPrime(i)) {
+      //   primes.push(i);
+      // }
+    }
+    
+    $("#result").html(primes.toString());
+  }
+  </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="scripts.js"></script>
+</body>
+</html>
